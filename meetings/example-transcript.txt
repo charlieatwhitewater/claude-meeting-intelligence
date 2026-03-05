@@ -1,0 +1,42 @@
+Meeting: Weekly Architecture Sync
+Date: 2026-03-03
+Duration: ~30 minutes
+Participants: Sarah Chen, Mike Rodriguez, Lisa Park, Tom Anderson
+
+00:00 Sarah Chen: Hey everyone, let's get started. Mike, can you give us an update on the rendering pipeline?
+
+00:15 Mike Rodriguez: Yeah, so we finished the migration to the new shader system last Friday. Performance is up about 40% on complex scenes. Still have a few edge cases with transparency layers that I want to clean up this week.
+
+00:35 Sarah Chen: That's great. 40% is significant. Lisa, does that affect the asset pipeline at all?
+
+00:45 Lisa Park: Not directly, but we should update the material export settings to take advantage of the new shaders. I can have that done by Thursday. Tom, can you review the changes before I push them?
+
+01:00 Tom Anderson: Sure. I'm mostly free Wednesday afternoon. Let's do a quick review then.
+
+01:10 Sarah Chen: Perfect. Speaking of the asset pipeline, we need to make a decision about the texture compression format. We've been going back and forth on ASTC versus BC7 for the last two meetings.
+
+01:25 Mike Rodriguez: I did the benchmarks we talked about. ASTC is better for mobile, BC7 is better for desktop. Since we're targeting both, I'd say we go ASTC for the mobile builds and BC7 for desktop. We can automate the conversion in the build pipeline.
+
+01:45 Lisa Park: That sounds right. The extra build step adds maybe 3 minutes to the pipeline but it's worth it for the quality difference.
+
+01:55 Sarah Chen: Agreed. Let's go with that. Mike, can you set up the dual-format pipeline? Target next sprint.
+
+02:05 Mike Rodriguez: Will do. I'll create the Jira ticket after this call.
+
+02:10 Sarah Chen: One more thing - the client demo is next Friday. Tom, where are we on the showcase scene?
+
+02:20 Tom Anderson: It's about 80% there. The main environment is done, lighting is set. I still need to add the interactive elements and the walkthrough path. Should be done by Wednesday, which gives us Thursday and Friday for polish.
+
+02:35 Sarah Chen: Good. Let's do a dry run Thursday at 2pm. Everyone available?
+
+02:40 All: Yes / works for me / I'm in.
+
+02:45 Lisa Park: Oh, one question - are we still planning to show the real-time collaboration feature in the demo? Because we have that bug where cursors desync after 10 minutes.
+
+02:55 Mike Rodriguez: I haven't had time to look at that yet. It's a networking issue - the WebSocket connection drops and reconnects but doesn't resync cursor positions.
+
+03:05 Sarah Chen: Let's not show it if it's not reliable. We can mention it's in development. Mike, can you at least get a diagnosis on the bug this week? Even if we don't fix it.
+
+03:15 Mike Rodriguez: Yeah, I can do that. I'll have a root cause analysis by Thursday.
+
+03:20 Sarah Chen: Great. Anything else? No? OK, good meeting everyone. See you at the dry run Thursday.

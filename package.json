@@ -1,0 +1,9 @@
+{
+  "name": "claude-meeting-intelligence",
+  "version": "1.0.0",
+  "description": "Meeting transcript processing with Claude — structured summaries, action items, and persistent memory",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/mcp-filesystem": "^0.1.0"
+  }
+}
